@@ -43,9 +43,25 @@ passPhrase() {
 			passphrase+=${word}
 		fi
 	done
+
+	case $1 in
+		5) passphrase_5=${passphrase};;
+		6) passphrase_6=${passphrase};;
+		7) passphrase_7=${passphrase};;
+	esac 
+
 	echo ""
 	echo -e "\033[0;40;31mPassPhrase ${1} de mots : \033[0;0;39m"
 	echo -e "\033[0;40;32m${passphrase}\033[0;0;39m"
+}
+
+passPhrasesOnly() {
+	echo ""
+	echo ""
+	echo -e "\033[0;40;31mPassPhrase 5,6 et 7 mots : \033[0;0;39m"
+	echo -e "\033[0;40;32m${passphrase_5}\033[0;0;39m"
+	echo -e "\033[0;40;32m${passphrase_6}\033[0;0;39m"
+	echo -e "\033[0;40;32m${passphrase_7}\033[0;0;39m"
 }
 
 main() {
@@ -57,7 +73,8 @@ main() {
 	passPhrase "5"
 	passPhrase "6"
 	passPhrase "7"
+	passPhrasesOnly
 }
-echo ${myPath012}
+#echo ${myPath012}
 main
 
